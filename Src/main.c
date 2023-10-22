@@ -57,6 +57,15 @@ int main(void)
 //******************************************************************************************//
 	while(1)
 	{
+		/* Esta inicialización del puerto debe mejorarse
+		con el uso de las estructuras*/
+		for(i=0;i<=DELAY;i++);
+		GPIO_ODR_R(GPIOB) = 0x2000; 														//USER LED ON
+		for(i=0;i<=DELAY;i++);
+		GPIO_ODR_R(GPIOB) &= ~0X2000; 														//USER LED OFF
+		sendStringUART2(msg);
+
+
 		for(i=0;i<=DELAY;i++);
 		GPIO_ODR_R(GPIOB) = 0x2000; 														//USER LED ON
 		for(i=0;i<=DELAY;i++);
